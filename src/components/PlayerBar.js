@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
  
 class PlayerBar extends Component {
+
   render() {
     return (
       <section className="player-bar">
@@ -17,7 +18,7 @@ class PlayerBar extends Component {
           </button>
         </section>
         <section id="time-control">                                                                    
-          <div className="current-time">{this.props.currentTime}</div>
+          <div className="current-time">{this.props.currentTimeFormat}</div>
           <input 
             type="range" 
             className="seek-bar" 
@@ -27,11 +28,19 @@ class PlayerBar extends Component {
             step="0.01"
             onChange={this.props.handleTimeChange}
           />
-          <div className="total-time">{this.props.duration}</div>
+          <div className="total-time">{this.props.durationFormat}</div>
         </section>
         <section id="volume-control">
           <div className="icon ion-volume-low"></div>
-          <input type="range" className="seek-bar" value="80" />
+          <input 
+            type="range" 
+            className="seek-bar" 
+            value={this.props.currentVolume}
+            max="1"
+            min="0"
+            step="0.01"
+            onChange={this.props.handleVolumeChange}
+          />
           <div className="icon ion-volume-high"></div>
         </section>
       </section>
