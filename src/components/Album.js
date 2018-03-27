@@ -107,9 +107,11 @@ class Album extends Component {
   formatTime(time) {
     if ((time >= 0) && Number.isInteger) {
       const min = Math.floor(time/60);
-      const sec = Math.round(time%60);
+      const sec = Math.floor(time%60);
       if (sec < 10) {
         return `${min}:0${sec}`;
+      } else if (sec == 60) {
+        return `${min}:00`;
       } else {
         return `${min}:${sec}`;
       }
