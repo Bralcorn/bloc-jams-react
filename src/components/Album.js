@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
+import './Album.css';
 
 
 class Album extends Component {
@@ -42,8 +43,8 @@ class Album extends Component {
     this.audioElement.addEventListener('volumeupdate', this.eventListeners.volumeupdate);
   }
 
-  componenetWillUnmount() {
-    this.audioElemenet.src = null;
+  componentWillUnmount() {
+    this.audioElement.src = null;
     this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
     this.audioElement.removeEventListener('volumeupdate', this.eventListeners.volumeupdate);
@@ -110,7 +111,7 @@ class Album extends Component {
       const sec = Math.floor(time%60);
       if (sec < 10) {
         return `${min}:0${sec}`;
-      } else if (sec == 60) {
+      } else if (sec === 60) {
         return `${min}:00`;
       } else {
         return `${min}:${sec}`;
@@ -131,7 +132,7 @@ class Album extends Component {
             <div id="release-info">{this.state.album.releaseInfo}</div>
           </div>
         </section>
-        <table id="song-list">
+        <table id="song-list" align="center">
           <colgroup>
             <col id="song-number-column" />
             <col id="song-title-column" />

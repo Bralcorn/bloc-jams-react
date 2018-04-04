@@ -1,0 +1,159 @@
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  background-color: rgb(75, 75, 75);
+  width: 100%;
+  padding: 1rem;
+  min-width: 300px;
+}
+
+#time-control *, #volume-control * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Control buttons */
+
+#play-pause {
+  margin: 0 2rem;
+}
+
+#play-pause {
+  background: #979696;
+  padding: 6px 10px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 2px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #000000;
+  vertical-align: middle;
+  }
+
+#play-pause:hover {
+  background: #ffffff;
+}
+
+#play-pause:active {
+  border: white;
+}
+
+/* Slider Styling */
+
+#time-control input{
+  margin: 1rem;
+  width: 55%;
+}
+
+#volume-control input {
+  margin: 1rem;
+}
+
+.seek-bar {
+  margin: auto;
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  background: transparent; /* Otherwise white in Chrome */
+  position:  relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 2rem;
+  width: 1rem;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -7px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d, -100vw 0 0 100vw rgb(63, 0, 0); /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+.seek-bar::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 0.5rem;
+  width: 1rem;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+/* All the same stuff for IE */
+.seek-bar::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 0.5rem;
+  width: 1rem;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.seek-bar:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.seek-bar::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+.seek-bar::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgb(192, 192, 192);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+
+.seek-bar::-moz-range-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgb(192, 192, 192);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+.seek-bar::-ms-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 1.3px 0;
+  color: transparent;
+}
+
+.seek-bar::-ms-fill-lower {
+  background: rgb(63, 0, 0);
+  border: 0.2px solid #010101;
+  border-radius: 1.3px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+.seek-bar::-ms-fill-upper {
+  background: rgb(192, 192, 192);
+  border: 0.2px solid #010101;
+  border-radius: 1.3px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+

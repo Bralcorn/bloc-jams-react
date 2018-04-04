@@ -1,0 +1,54 @@
+.album {
+text-align: center;
+margin: 0;
+width: 100%;
+}
+
+#album-cover-art {
+	margin: 1rem 4rem;
+	width: 40rem;
+
+}
+
+.album-details {
+	clear: right;
+}
+
+#album-title, .album .artist, #release-info {
+	display: inline-block;
+	margin: 1rem 1rem;
+}
+
+#song-list {
+	padding: 6rem 0;
+	margin-bottom: 10.1rem;
+	height: 50px;
+	overflow-y: auto;
+	border-spacing: 0;
+}
+
+.song:hover {
+	background-color: rgb(168, 168, 168);
+}
+
+.song-actions {
+	width: 6rem;
+	text-align: center;
+}
+
+.song-title {
+	font-weight: 550;
+	width: 50rem;
+	text-align: left;
+}
+
+.song-duration {
+	width: 6rem;
+	text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  #album-cover-art {
+    width: 20rem;
+  }
+}

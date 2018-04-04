@@ -1,0 +1,50 @@
+.landing {
+  margin: auto;
+  width: 75%;
+  padding: 0px;
+  max-width: 1400px;
+}
+
+.hero-title {
+  background-color: rgb(192, 39, 90);
+  color: white;
+  margin: 0;
+  padding: 6.85rem 2rem 6.85rem 2rem;
+  font-size: 5rem;
+  text-align: left;
+}
+
+.point-right {
+  text-align: right;
+  padding: 1rem 2rem 1rem 1rem;
+  background-color: rgb(255, 153, 0);
+}
+
+.point-left {
+background-color: rgb(255, 102, 0);
+text-align: left;
+padding: 1rem 1rem 1rem 2rem;
+}
+
+.point-title {
+  color: white;
+  font-size: 5rem;
+}
+
+.point-description {
+  font-weight: 550;
+}
+
+@media only screen and (max-width: 1000px) {
+  .landing {
+    width: 100%;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .point-title {
+    font-size: 3rem;
+  }
+  
+}
