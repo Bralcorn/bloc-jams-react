@@ -14,15 +14,16 @@ class Album extends Component {
 
     this.state = {
       album: album,
-      currentSong: album.songs[0],
+      currentSong: undefined,
       currentTime: 0,
       currentVolume: 0.8,
-      duration: album.songs[0].duration,
-      isPlaying: false
+      duration: NaN,
+      isPlaying: false,
+      isHovering: NaN
     };
 
     this.audioElement = document.createElement('audio');
-    this.audioElement.src = album.songs[0].audioSrc;
+    this.audioElement.src = undefined;
     this.audioElement.volume = this.state.currentVolume;
   }
 
@@ -67,13 +68,25 @@ class Album extends Component {
 
   handleSongClick(song) {
     const isSameSong = this.state.currentSong === song;
-    if (this.state.isPlaying && isSameSong) {
+    if(song === undefined) {
+      this.pause();
+    }
+    else if (this.state.isPlaying && isSameSong) {
       this.pause();
     } else {
       if (!isSameSong) {
         this.setSong(song); 
       }
       this.play();
+    }
+  }
+
+  handleHover(index) {
+    if(index === this.state.isHovering) {
+      this.setState({isHovering: NaN})
+    }
+    else {
+      this.setState({isHovering: index})
     }
   }
 
@@ -94,9 +107,14 @@ class Album extends Component {
   }
   
   handleTimeChange(e) {
-    const newTime = this.audioElement.duration * e.target.value;
-    this.audioElement.currentTime = newTime;
-    this.setState({ currentTime: newTime });
+    if(this.audioElement.duration != this.audioElement.duration) {
+      this.setState({currentTime: 0})
+    }
+    else {
+      const newTime = this.audioElement.duration * e.target.value;
+      this.audioElement.currentTime = newTime;
+      this.setState({ currentTime: newTime });
+    }
   }
 
   handleVolumeChange(e) {
@@ -121,7 +139,28 @@ class Album extends Component {
     }
   }
 
+  whatDo(index) {
+
+    if(this.state.currentSong === this.state.album.songs[index]) {
+      if(this.state.isPlaying === true) {
+        return <span className="ion-pause"></span>
+      }
+      else {
+        return <span className="ion-play"></span>
+      }
+    }
+    else if(this.state.isHovering === index) {
+      return <span className="ion-play"></span>
+    }
+    else {
+      return <span className="song-number">{index + 1}</span>
+    }
+  }
+
+
   render() {
+
+
     return (
       <section className="album">
         <section id="album-info">
@@ -141,12 +180,15 @@ class Album extends Component {
           <tbody>
             {
               this.state.album.songs.map( (song, index) =>
-                <tr className = "song" key={index} onClick={() => this.handleSongClick(song)} >
+                <tr className = "song" 
+                  key={index} 
+                  onMouseEnter={() => this.handleHover(index)} 
+                  onMouseLeave={() => this.handleHover(index)}
+                  onClick={() => this.handleSongClick(song)} 
+                >
                   <td className="song-actions">
                     <button>
-                      <span className="song-number">{index + 1}</span>
-                      <span className="ion-play"></span>
-                      <span className="ion-pause"></span>
+                      {this.whatDo(index)}
                     </button>
                   </td>
                   <td className="song-title">{song.title}</td>
@@ -177,3 +219,5 @@ class Album extends Component {
 
 
 export default Album;
+
+
